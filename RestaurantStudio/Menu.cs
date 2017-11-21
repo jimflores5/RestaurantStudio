@@ -16,9 +16,13 @@ namespace RestaurantStudio
 
         public void AddMenuItem(MenuItem menuItem)
         {
-            this.MenuItems.Add(menuItem);
-            // Update LastUpdated anytime we add a new menuItem
-            this.LastUpdated = DateTime.Now;
+            //prevent adding duplicate menuItems
+            if (!this.MenuItems.Contains(menuItem))
+            {
+                this.MenuItems.Add(menuItem);
+                // Update LastUpdated anytime we add a new menuItem
+                this.LastUpdated = DateTime.Now;
+            }
         }
 
         public void RemoveMenuItem(MenuItem menuItem)

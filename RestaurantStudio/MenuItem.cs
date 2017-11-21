@@ -33,5 +33,20 @@ namespace RestaurantStudio
             }
             return String.Format("{0} - ${1} - {2} ({3}) {4}", Name, Price,  Description, Category, newText);
         }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            //cast to MenutItem
+            MenuItem menuItem = (MenuItem)obj;
+
+            //check for value equality
+            //return a bool result
+            return this.Name == menuItem.Name && this.Category == menuItem.Category;
+        }
     }
 }
